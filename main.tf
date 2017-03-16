@@ -49,7 +49,7 @@ module "database_subnets" {
 }
 
 resource "aws_db_subnet_group" "database" {
-  count       = "${length(var.database_subnets) > 0 ? 1 : 0}"
+  count       = "${signum(length(var.database_subnets))}"
   name        = "${var.name}-rds-subnet-group"
   description = "Database subnet group for VPC ${var.name}"
   subnet_ids  = ["${module.database_subnets.subnet_ids}"]
