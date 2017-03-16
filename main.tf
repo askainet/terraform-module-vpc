@@ -6,7 +6,7 @@ resource "aws_vpc" "vpc" {
 }
 
 module "public_subnets" {
-  source = "github.com/askainet/terraform-module-subnet-public?ref=v0.0.1"
+  source = "github.com/askainet/terraform-module-subnet-public?ref=support_no_public_subnets"
 
   vpc_id                  = "${aws_vpc.vpc.id}"
   vpc_name                = "${var.name}"
