@@ -19,6 +19,7 @@ variable "enable_dns_support" {
 variable "public_subnets" {
   description = "A list of public subnets to create"
   type        = "list"
+  default     = []
 }
 
 variable "private_subnets" {
