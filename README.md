@@ -9,7 +9,7 @@ Module Input Variables
 
 - `name` - name for the VPC
 - `cidr` - network block in CIDR notation
-- `public_subnets` - list of public subnet CIDRs
+- `public_subnets` - list of public subnet CIDRs (defaults to empty)
 - `private_subnets` - list of private subnet CIDRs (defaults to empty)
 - `database_subnets` - list of private database subnet CIDRs (defaults to empty)
 - `azs` - list of AZs in which to distribute subnets
@@ -33,17 +33,17 @@ NAT Gateways
 Usage
 =====
 
-1-tier with only public subnets
+1-tier with only private subnets
 -------------------------------
 
 ```hcl
 module "vpc" {
-  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.1"
+  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.2"
 
-  name           = "vpc-name"
-  cidr           = "10.0.0.0/16"
-  public_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
-  azs            = ["eu-central-1a", "eu-central-1b"]
+  name            = "vpc-name"
+  cidr            = "10.0.0.0/16"
+  private_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
+  azs             = ["eu-central-1a", "eu-central-1b"]
 
   tags {
     "Terraform" = "true"
@@ -57,7 +57,7 @@ module "vpc" {
 
 ```hcl
 module "vpc" {
-  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.1"
+  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.2"
 
   name              = "vpc-name"
   cidr              = "10.0.0.0/16"
@@ -78,7 +78,7 @@ module "vpc" {
 
 ```hcl
 module "vpc" {
-  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.1"
+  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.2"
 
   name              = "vpc-name"
   cidr              = "10.0.0.0/16"
