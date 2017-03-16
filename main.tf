@@ -30,7 +30,7 @@ module "private_subnets" {
   vpc_name     = "${var.name}"
   subnets      = ["${var.private_subnets}"]
   azs          = ["${var.azs}"]
-  enable_nat   = "${var.nat_gateway_count != 0 ? true : false}"
+  enable_nat   = "${length(var.public_subnets) > 0 ? (var.nat_gateway_count != 0 ? true : false) : false}"
   nat_gateways = "${module.nat_gateways.nat_gateway_ids}"
   tags         = "${merge(var.tags, map("VPC", var.name))}"
 }
@@ -43,7 +43,7 @@ module "database_subnets" {
   vpc_name     = "${var.name}"
   subnets      = ["${var.database_subnets}"]
   azs          = ["${var.azs}"]
-  enable_nat   = "${var.nat_gateway_count != 0 ? true : false}"
+  enable_nat   = "${length(var.public_subnets) > 0 ? (var.nat_gateway_count != 0 ? true : false) : false}"
   nat_gateways = "${module.nat_gateways.nat_gateway_ids}"
   tags         = "${merge(var.tags, map("VPC", var.name))}"
 }
