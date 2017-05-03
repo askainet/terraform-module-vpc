@@ -38,7 +38,7 @@ Usage
 
 ```hcl
 module "vpc" {
-  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.2"
+  source = "github.com/askainet/terraform-module-vpc?ref=v0.0.2"
 
   name            = "vpc-name"
   cidr            = "10.0.0.0/16"
@@ -57,7 +57,7 @@ module "vpc" {
 
 ```hcl
 module "vpc" {
-  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.2"
+  source = "github.com/askainet/terraform-module-vpc?ref=v0.0.2"
 
   name              = "vpc-name"
   cidr              = "10.0.0.0/16"
@@ -78,7 +78,7 @@ module "vpc" {
 
 ```hcl
 module "vpc" {
-  source = "github.com/askainet/terraform-module-vpc-2tier?ref=v0.0.2"
+  source = "github.com/askainet/terraform-module-vpc?ref=v0.0.2"
 
   name              = "vpc-name"
   cidr              = "10.0.0.0/16"
